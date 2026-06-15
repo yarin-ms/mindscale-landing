@@ -353,44 +353,22 @@
 </head>
 <body>
 
-<!-- ===================== HEADER ===================== -->
-<header id="hdr">
-  <div class="wrap nav">
-    <div class="logo"><span class="dot"></span><b data-edit>MindScale</b></div>
-    <a href="#apply" class="btn">בדקו אם אנחנו מתאימים</a>
-  </div>
-</header>
-
 <!-- ===================== HERO (סקשן 1) ===================== -->
 <section class="hero">
   <div class="wrap">
     <span class="eyebrow reveal" data-edit>לנותני שירות, מאמנים ויוצרי קורסים שכבר עושים <b>50,000 ₪+</b> בחודש מאינסטגרם 👈</span>
 
-    <p class="hook reveal d1" data-edit>כמה שילמת לסוכנות השיווק האחרונה — בלי קשר לכמה היא באמת הכניסה לך?</p>
+    <p class="pretitle reveal d1" data-edit>הכירו את המודל <b>היחיד בארץ</b> שבו אנחנו מרוויחים — רק מהגדילה שאנחנו יוצרים לכם.</p>
+    <h1 class="brandbig reveal d1" data-edit>MindScale</h1>
 
-    <ul class="byebye reveal d2">
-      <li data-edit>ביי ביי לריטיינר שיורד מהחשבון ב-1 לחודש.</li>
-      <li data-edit>ביי ביי לדוחות יפים בלי מכירות.</li>
-      <li data-edit>ביי ביי לסוכנות שמרוויחה גם כשאתה לא.</li>
-    </ul>
+    <p class="subhead reveal d2" data-edit>מעטפת שיווק מלאה — תוכן, משפכים וממומן — שכבר הכניסה <b>מעל 10,000,000 ₪</b> ללקוחות שלנו, בעסקי קורסים, הכשרות וליווי.</p>
 
-    <p class="pretitle reveal d2" data-edit>הכירו את המודל <b>היחיד בארץ</b> שבו אנחנו מרוויחים — רק מהגדילה שאנחנו יוצרים לכם.</p>
-    <h1 class="brandbig reveal d2" data-edit>MindScale</h1>
-
-    <p class="subhead reveal d3" data-edit>מעטפת שיווק מלאה — תוכן, משפכים וממומן — שכבר הכניסה <b>מעל 10,000,000 ₪</b> ללקוחות שלנו, בעסקי קורסים, הכשרות וליווי.</p>
-
-    <div class="usp reveal d3">
+    <div class="usp reveal d2">
       <p class="big" data-edit>ריטיינר בסיס נמוך — ואחוז קטן <span class="gold">(6.5%)</span> רק על הצמיחה.</p>
       <p data-edit>אפס אחוזים על המחזור שכבר יש לכם. לא הגדלנו? לא הרווחנו.</p>
     </div>
 
-    <div class="shift reveal d3">
-      <span class="from" data-edit>בעל עסק שמשלם ומתפלל לתוצאות</span>
-      <span class="arrow">←</span>
-      <span class="to" data-edit>שותף שצומח עם צוות שמרוויח רק כשהוא גדל איתו</span>
-    </div>
-
-    <div class="hero-form reveal d4">
+    <div class="hero-form reveal d3">
       <div class="form-card">
         <form id="leadFormHero" class="lead-form" novalidate>
           <h3>בדקו אם אתם מתאימים</h3>
@@ -415,6 +393,20 @@
           <p style="color:var(--ink-soft);margin-top:6px">תכינו את היעדים — אנחנו כבר בדרך.</p>
         </div>
       </div>
+    </div>
+
+    <p class="hook reveal" data-edit>כמה שילמת לסוכנות השיווק האחרונה — בלי קשר לכמה היא באמת הכניסה לך?</p>
+
+    <ul class="byebye reveal">
+      <li data-edit>ביי ביי לריטיינר שיורד מהחשבון ב-1 לחודש.</li>
+      <li data-edit>ביי ביי לדוחות יפים בלי מכירות.</li>
+      <li data-edit>ביי ביי לסוכנות שמרוויחה גם כשאתה לא.</li>
+    </ul>
+
+    <div class="shift reveal">
+      <span class="from" data-edit>בעל עסק שמשלם ומתפלל לתוצאות</span>
+      <span class="arrow">←</span>
+      <span class="to" data-edit>שותף שצומח עם צוות שמרוויח רק כשהוא גדל איתו</span>
     </div>
   </div>
   <div class="wave-b"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#F8F9FA" d="M0,64 C240,128 480,0 720,32 C960,64 1200,128 1440,72 L1440,120 L0,120 Z"></path></svg></div>
@@ -592,10 +584,6 @@
 <div id="edtoast"></div>
 
 <script>
-/* ---------- Header scroll ---------- */
-const hdr=document.getElementById('hdr');
-addEventListener('scroll',()=>hdr.classList.toggle('scrolled',scrollY>40));
-
 /* ---------- Reveal on scroll ---------- */
 const io=new IntersectionObserver((ents)=>{
   ents.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}});
