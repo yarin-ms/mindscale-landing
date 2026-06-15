@@ -133,8 +133,13 @@
   .shift .arrow{color:var(--gold-bright);font-size:1.4em;font-weight:800}
   .shift .to{color:#fff}
 
+  /* hero logo */
+  .hero-logo{display:inline-block;background:#fff;border-radius:22px;padding:14px 22px;box-shadow:0 16px 44px rgba(0,0,0,.28);margin-bottom:24px}
+  .hero-logo img{height:clamp(72px,14vw,108px);width:auto;display:block}
+  .brandbig{display:none}
+
   /* hero form */
-  .hero-form{max-width:540px;margin:36px auto 0;text-align:right}
+  .hero-form{max-width:540px;margin:36px auto clamp(34px,6vw,56px);text-align:right}
   .hero-form .form-card{box-shadow:0 30px 70px rgba(0,0,0,.45)}
   .hero-form .form-card h3{font-size:1.35rem}
 
@@ -356,6 +361,8 @@
 <!-- ===================== HERO (סקשן 1) ===================== -->
 <section class="hero">
   <div class="wrap">
+    <div class="hero-logo reveal"><img src="assets/logo.png" alt="MindScale — Think Big. Scale Bigger." width="500" height="500"></div>
+
     <span class="eyebrow reveal" data-edit>לנותני שירות, מאמנים ויוצרי קורסים שכבר עושים <b>50,000 ₪+</b> בחודש מאינסטגרם 👈</span>
 
     <p class="pretitle reveal d1" data-edit>הכירו את המודל <b>היחיד בארץ</b> שבו אנחנו מרוויחים — רק מהגדילה שאנחנו יוצרים לכם.</p>
@@ -372,7 +379,7 @@
       <div class="form-card">
         <form id="leadFormHero" class="lead-form" novalidate>
           <h3>בדקו אם אתם מתאימים</h3>
-          <p class="sub">נשאיר פרטים ונחזור אליכם תוך 24 שעות 👇</p>
+          <p class="sub">השאירו לנו פרטים ונחזור אליכם תוך 24 שעות 👇</p>
           <div class="field"><label>שם מלא</label><input type="text" name="name" required placeholder="איך קוראים לך?"></div>
           <div class="field"><label>טלפון נייד</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
           <div class="field"><label>אימייל</label><input type="email" name="email" required placeholder="name@email.com"></div>
@@ -542,7 +549,7 @@
       <div class="form-card reveal d2">
         <form id="leadForm" class="lead-form" novalidate>
           <h3 data-edit>בדקו אם אתם מתאימים</h3>
-          <p class="sub" data-edit>נשאיר לכם פרטים ונחזור אליכם 👇</p>
+          <p class="sub" data-edit>השאירו לנו פרטים ונחזור אליכם תוך 24 שעות 👇</p>
           <div class="field"><label data-edit>שם מלא</label><input type="text" name="name" required placeholder="איך קוראים לך?"></div>
           <div class="field"><label data-edit>טלפון נייד</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
           <div class="field"><label data-edit>אימייל</label><input type="email" name="email" required placeholder="name@email.com"></div>
