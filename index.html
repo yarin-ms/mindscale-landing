@@ -133,6 +133,11 @@
   .shift .arrow{color:var(--gold-bright);font-size:1.4em;font-weight:800}
   .shift .to{color:#fff}
 
+  /* hero form */
+  .hero-form{max-width:540px;margin:36px auto 0;text-align:right}
+  .hero-form .form-card{box-shadow:0 30px 70px rgba(0,0,0,.45)}
+  .hero-form .form-card h3{font-size:1.35rem}
+
   /* wave bottom */
   .wave-b{position:absolute;left:0;right:0;bottom:-1px;line-height:0;z-index:1}
   .wave-b svg{display:block;width:100%;height:clamp(60px,9vw,120px)}
@@ -380,7 +385,32 @@
       <span class="to" data-edit>שותף שצומח עם צוות שמרוויח רק כשהוא גדל איתו</span>
     </div>
 
-    <a href="#apply" class="btn reveal d4">רוצה לבדוק אם אנחנו מתאימים? <span class="hand">✋🏻</span></a>
+    <div class="hero-form reveal d4">
+      <div class="form-card">
+        <form id="leadFormHero" class="lead-form" novalidate>
+          <h3>בדקו אם אתם מתאימים</h3>
+          <p class="sub">נשאיר פרטים ונחזור אליכם תוך 24 שעות 👇</p>
+          <div class="field"><label>שם מלא</label><input type="text" name="name" required placeholder="איך קוראים לך?"></div>
+          <div class="field"><label>טלפון נייד</label><input type="tel" name="phone" required placeholder="050-0000000"></div>
+          <div class="field"><label>אימייל</label><input type="email" name="email" required placeholder="name@email.com"></div>
+          <div class="field"><label>מה המחזור החודשי שלכם היום?</label>
+            <select name="revenue" required>
+              <option value="" disabled selected>בחרו טווח</option>
+              <option value="<50K">עד 50,000 ₪</option>
+              <option value="50-100K">50,000 – 100,000 ₪</option>
+              <option value="100K+">100,000 ₪ ומעלה</option>
+            </select>
+          </div>
+          <label class="consent"><input type="checkbox" required><span>אני מאשר/ת קבלת תכנים ומסכים/ה לתנאי השימוש ומדיניות הפרטיות.</span></label>
+          <button type="submit" class="btn">רוצה לבדוק אם אני מתאים <span class="hand">✋🏻</span></button>
+        </form>
+        <div class="form-success">
+          <div class="ok">✅</div>
+          <h3>קיבלנו! נחזור אליך בהקדם.</h3>
+          <p style="color:var(--ink-soft);margin-top:6px">תכינו את היעדים — אנחנו כבר בדרך.</p>
+        </div>
+      </div>
+    </div>
   </div>
   <div class="wave-b"><svg viewBox="0 0 1440 120" preserveAspectRatio="none"><path fill="#F8F9FA" d="M0,64 C240,128 480,0 720,32 C960,64 1200,128 1440,72 L1440,120 L0,120 Z"></path></svg></div>
 </section>
@@ -527,7 +557,7 @@
       </div>
 
       <div class="form-card reveal d2">
-        <form id="leadForm" novalidate>
+        <form id="leadForm" class="lead-form" novalidate>
           <h3 data-edit>בדקו אם אתם מתאימים</h3>
           <p class="sub" data-edit>נשאיר לכם פרטים ונחזור אליכם 👇</p>
           <div class="field"><label data-edit>שם מלא</label><input type="text" name="name" required placeholder="איך קוראים לך?"></div>
@@ -594,13 +624,16 @@ const cio=new IntersectionObserver((ents)=>{
 document.querySelectorAll('.count').forEach(el=>cio.observe(el));
 
 /* ---------- Form ---------- */
-document.getElementById('leadForm').addEventListener('submit',function(ev){
-  ev.preventDefault();
-  if(!this.checkValidity()){this.reportValidity();return;}
-  const data=Object.fromEntries(new FormData(this).entries());
-  console.log('LEAD:',data); /* כאן מחברים webhook / CRM */
-  this.style.display='none';
-  document.getElementById('formSuccess').style.display='block';
+document.querySelectorAll('.lead-form').forEach(function(form){
+  form.addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!this.checkValidity()){this.reportValidity();return;}
+    const data=Object.fromEntries(new FormData(this).entries());
+    console.log('LEAD:',data); /* כאן מחברים webhook / CRM */
+    this.style.display='none';
+    const ok=this.parentElement.querySelector('.form-success');
+    if(ok)ok.style.display='block';
+  });
 });
 
 /* ---------- Inline editor (✏️ / 💾 / ↺) ---------- */
