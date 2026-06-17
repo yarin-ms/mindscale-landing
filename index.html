@@ -334,6 +334,35 @@
   .reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
   @media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}.btn .hand{animation:none}}
 
+  /* ===== Stat bar (סגנון תמונה ג) ===== */
+  .statbar{display:flex;flex-wrap:wrap;justify-content:center;margin-top:48px}
+  .statbar-item{flex:1 1 0;min-width:140px;text-align:center;padding:16px 18px}
+  .statbar-item:not(:last-child){border-inline-end:1px solid var(--line)}
+  .statbar-item .num{font-size:clamp(2rem,5vw,3rem);font-weight:800;color:var(--blue);line-height:1;letter-spacing:-.02em}
+  .statbar-item .lbl{margin-top:10px;color:var(--ink-soft);font-weight:600;font-size:1rem}
+  @media(max-width:760px){.statbar-item{flex-basis:40%;border-inline-end:none;margin-bottom:18px}}
+
+  /* ===== Pain section (סגנון תמונה 5ע) ===== */
+  .sec-dark{background:#23262b;color:#fff}
+  .pain-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center}
+  @media(max-width:880px){.pain-grid{grid-template-columns:1fr;gap:34px}}
+  .pain-chart{background:#1a1c20;border:1px solid #31363f;border-radius:20px;padding:30px 26px 24px;box-shadow:0 18px 50px rgba(0,0,0,.3)}
+  .chart{display:flex;align-items:flex-end;gap:16px;height:250px}
+  .barcol{flex:1;display:flex;align-items:flex-end;justify-content:center;height:100%}
+  .bar{width:100%;max-width:66px;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#69707d,#3c424d)}
+  .bar.red{background:linear-gradient(180deg,#ff5a5f,#d62b30)}
+  .caps{display:flex;gap:16px;margin-top:14px}
+  .caps .cap{flex:1;text-align:center;color:#aeb4bf;font-size:.82rem;font-weight:600;line-height:1.3}
+  .caps .cap.red{color:#ff6b6f;font-weight:700}
+  .pain-eyebrow{color:#aeb4bf;font-size:clamp(1rem,2.6vw,1.2rem);font-weight:500;margin-bottom:10px}
+  .pain-head{font-size:clamp(1.7rem,4.6vw,2.6rem);font-weight:800;line-height:1.2;margin-bottom:22px;color:#fff}
+  .pain-head .pain-mark{color:#fff;background:linear-gradient(transparent 60%,rgba(214,43,48,.55) 60%);padding:0 4px}
+  .pain-p{color:#d4d8df;font-size:clamp(1rem,2.6vw,1.15rem);line-height:1.6;margin-bottom:16px;font-weight:500}
+  .pain-p b{color:#fff;font-weight:700}
+  .pain-u{text-decoration:underline;text-decoration-color:#ff5a5f;text-decoration-thickness:3px;text-underline-offset:4px;color:#fff;font-weight:700}
+  .pain-close{font-size:clamp(1.1rem,3vw,1.4rem);font-weight:800;color:#fff;margin-top:6px;line-height:1.4}
+  .pain-close .em-gold{color:var(--gold-bright)}
+
   /* ===== Inline editor toolbar ===== */
   #edbar{
     position:fixed;bottom:22px;left:22px;z-index:999;display:none;gap:10px;
@@ -432,14 +461,43 @@
       <p class="punch" data-edit>מודל ה-<span class="em-gold">WIN-WIN</span> היחיד מסוגו בארץ. 👈</p>
     </div>
 
-    <div class="stats">
-      <div class="stat reveal d1"><div class="num"><span class="count" data-target="200">0</span><span class="suf">+</span></div><div class="lbl" data-edit>עסקים שכבר ליווינו</div></div>
-      <div class="stat reveal d2"><div class="num"><span class="count" data-target="7">0</span></div><div class="lbl" data-edit>שנות ניסיון מצטבר</div></div>
-      <div class="stat reveal d3"><div class="num"><span class="suf">₪</span><span class="count" data-target="3">0</span><span class="suf">M+</span></div><div class="lbl" data-edit>בניהול תקציבי ממומן</div></div>
-      <div class="stat reveal d4"><div class="num"><span class="count" data-target="1">0</span></div><div class="lbl" data-edit>מודל יחיד בארץ שמרוויח רק כשאתם גדלים</div></div>
+    <div class="statbar">
+      <div class="statbar-item reveal d1"><div class="num"><span class="count" data-target="7">0</span>x</div><div class="lbl" data-edit>החזר ממוצע</div></div>
+      <div class="statbar-item reveal d1"><div class="num">+<span class="count" data-target="30">0</span>M</div><div class="lbl" data-edit>הכנסה ללקוחות</div></div>
+      <div class="statbar-item reveal d2"><div class="num">+<span class="count" data-target="4">0</span>M</div><div class="lbl" data-edit>תקציב שניהלנו</div></div>
+      <div class="statbar-item reveal d2"><div class="num">+<span class="count" data-target="3">0</span></div><div class="lbl" data-edit>שנות פעילות</div></div>
+      <div class="statbar-item reveal d3"><div class="num">+<span class="count" data-target="100">0</span></div><div class="lbl" data-edit>לקוחות בסוכנות</div></div>
     </div>
 
-    <p class="bridge reveal" data-edit>אותו מנוע שהזניק עשרות מותגים — עכשיו עובד בשבילכם.<span>רק שהפעם, אנחנו על הקו ביחד אתכם. אז איך זה עובד בפועל? 👇</span></p>
+    <p class="bridge reveal" data-edit>אותו מנוע שהזניק עשרות מותגים — עכשיו עובד בשבילכם.<span>רק שהפעם, אנחנו על הקו ביחד אתכם. אבל קודם — בוא נדבר על למה בכלל היינו צריכים מהפכה. 👇</span></p>
+  </div>
+</section>
+
+<!-- ===================== סקשן כאב (אחרי המספרים, סגנון תמונה 5ע) ===================== -->
+<section class="block sec-dark">
+  <div class="wrap pain-grid">
+    <div class="pain-chart reveal">
+      <div class="chart">
+        <div class="barcol"><div class="bar red" style="height:94%"></div></div>
+        <div class="barcol"><div class="bar" style="height:72%"></div></div>
+        <div class="barcol"><div class="bar" style="height:55%"></div></div>
+        <div class="barcol"><div class="bar" style="height:18%"></div></div>
+      </div>
+      <div class="caps">
+        <span class="cap red">מה שאתם משלמים</span>
+        <span class="cap">הבטחות</span>
+        <span class="cap">דוחות ו"אופטימיזציות"</span>
+        <span class="cap">צמיחה אמיתית</span>
+      </div>
+    </div>
+    <div class="pain-copy">
+      <p class="pain-eyebrow reveal" data-edit>אם אתה כבר לא חדש בעולם העסקים,</p>
+      <h2 class="pain-head reveal d1" data-edit>כנראה שכבר עברת קמפיינר או שניים — <span class="pain-mark">ואולי גם סוכנות שלמה.</span></h2>
+      <p class="pain-p reveal d2" data-edit>ומה שאנחנו שומעים בדרך כלל? ששילמת <b>אלפי שקלים בחודש</b> — וקיבלת בעיקר דוחות צבעוניים, גרפים ו"אופטימיזציות".</p>
+      <p class="pain-p reveal d2" data-edit>הקמפיינר עבד. הסוכנות גבתה את הריטיינר. <span class="pain-u">ואתה? נשארת עם אותו מחזור</span> — ועם תירוץ חדש בכל פגישה.</p>
+      <p class="pain-p reveal d3" data-edit>כי במודל הישן הם מרוויחים <span class="pain-u">בין אם גדלת ובין אם לא</span>. אין להם שום סיבה אמיתית להזיז לך את העסק קדימה.</p>
+      <p class="pain-close reveal d3" data-edit>וזה בדיוק מה שיצאנו לשבור. <span class="em-gold">אצלנו — אם אתה לא גדל, אנחנו לא מרוויחים.</span></p>
+    </div>
   </div>
 </section>
 
